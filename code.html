@@ -23,7 +23,7 @@
   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <div class="container-fluid">
       <a class="navbar-brand" href="index.html"><img src="img/favicon.ico" class="d-inline-block" alt="Ivan White Logo"
-          width="30" height="24"> App Name</a>
+          width="30" height="24"> Backtrack</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
         aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -40,7 +40,7 @@
             <a class="nav-link active" aria-current="page" href="code.html">The Code</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#" target="_blank">Git Repo</a>
+            <a class="nav-link" href="https://github.com/grandslammer/Backtrack" target="_blank">Git Repo</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#" target="_blank">About</a>
@@ -53,21 +53,47 @@
   <main class="flex-shrink-0">
     <div class="container py-5 px-5 mt-5">
       <h2 class="border-1 border-bottom border-dark">
-        The Code for APP NAME.
+        The Code for Backtrack.
       </h2>
       <div class="row row-cols-1 row-cols-lg-2">
         <div class="col col-lg-4">
-          <h5>Write a function to get the values entered by the user, parse them into ints, then call generateNumbers
+          <h5>getValue is the controller function. It gets the string entered by the user, then calls the logic function
+            reverseString, and finally calls the displayString function.
           </h5>
           <h5>______________________________________</h5>
-          <h5>Generate the numbers using a for loop</h5>
+          <h5>reverseString is the logic function. It reverses the string using a backwards for loop</h5>
           <h5>______________________________________</h5>
-          <h5>Display the numbers on the screen, making the even ones <strong>BOLD</strong></h5>
+          <h5>displayString displays the reversed string back to the user</h5>
         </div>
         <div class="col col-lg-8">
           <pre class="line-numbers language-javascript"><code class="language-javascript">
-function helloWorld() {
-alert("Hello World!")
+//Get the value from the string
+function getValue() {
+  document.getElementById("alert").classList.add("invisible")
+
+  let userString = document.getElementById("userString").value
+
+  let reversedString = reverseString(userString)
+
+  displayString(reversedString)
+}
+
+//Reverse the string
+function reverseString(userString) {
+  let revString = []
+
+  for (let i = userString.length - 1; i >= 0; i--) {
+  revString += userString[i]
+  }
+
+  return revString
+}
+
+//Display the message with the reversed string
+function displayString(revString) {
+  document.getElementById("msg").innerHTML = `Your string reversed is: ${revString}`
+
+  document.getElementById("alert").classList.remove("invisible")
 }
           </code>
         </pre>
